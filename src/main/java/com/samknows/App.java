@@ -28,20 +28,10 @@ public class App {
 
 	private static Logger logger = Logger.getLogger(App.class.getName());
 	
-	private static BigDecimal sum = new BigDecimal(0);
-	
-	private static int datasetCount = 0;
-	
 	private static Resource loadDatasetOne() {
 		
 		return new ClassPathResource("inputs/1.json");
 		
-	}
-	
-	private static Resource loadDatasetTwo() {
-		
-		return new ClassPathResource("inputs/2.json");
-
 	}
 	
 	/**
@@ -51,8 +41,7 @@ public class App {
 		
 		/** Load inputs. **/
 		Resource inputs1 = loadDatasetOne();
-		Resource inputs2 = loadDatasetTwo();
-
+		
 		//create an input stream from classpath (required by 'Runnable Jars')
 		InputStream inputStream = null;
 		try {
@@ -68,13 +57,10 @@ public class App {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
-//		BigDecimal decimal
-		
 		DataMetricsModel [] metrics1 = null;
 		try {
 			
 			metrics1 = mapper.readValue(inputStream, DataMetricsModel[].class);
-			System.out.println("Metrics loaded.");
 			
 		} catch (Exception e) {
 			
@@ -82,34 +68,6 @@ public class App {
 		}
 		
 		final List<DataMetricsModel> metrics1List = Arrays.asList(metrics1);
-		
-		
-		
-		/** Add 2nd list **/
-
-		/** Load 2nd list, load into 1st **/
-		inputStream = null;
-		try {
-			
-			inputStream = inputs2.getInputStream();
-			
-		} catch (IOException e) {
-			
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		
-		metrics1 = null;
-		try {
-			
-			metrics1 = mapper.readValue(inputStream, DataMetricsModel[].class);
-			System.out.println("Metrics loaded.");
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
 		
 		MetricAnalyzer metricAnalyzer = new MetricAnalyzer(metrics1List);
 		metricAnalyzer.loadMetrics();

@@ -23,7 +23,6 @@ public class MetricMinMaxUtils {
 			maxMetric = new Double(0);
 			medianMetric = new Double(0);
 			
-//			metric
 		}
 		
 		final ArrayList<BigDecimal> tempList = new ArrayList<BigDecimal>();
@@ -111,26 +110,6 @@ public class MetricMinMaxUtils {
 		minMetric = Math.round( minAsMbps * 100.0 ) / 100.0;
 		maxMetric = Math.round( maxAsMbps * 100.0 ) / 100.0;
 		
-		System.out.println("Min: " + minMetric + " max: " + maxMetric);
-//		
-//		/** Median **/
-//		int listSize = doubleList.size();
-//		int middleValue = listSize / 2;
-//		double median = 0;
-//		if((listSize % 2) == 0) {
-//			
-//			median = (doubleList.get(middleValue -1) + doubleList.get(middleValue)) / 2;
-//			
-//		} else {
-//			
-//			median = doubleList.get(middleValue);
-//			
-//		}
-//		
-//		/** Median value **/
-//		final Double medianRounded = Math.round( median * 100.0 ) / 100.0;
-//		System.out.println("Median: " + medianRounded);
-		
 		return "Min: " + minMetric
 				+ "\nMax: " + maxMetric;
 		
@@ -166,8 +145,6 @@ public class MetricMinMaxUtils {
 		
 		/** Median value **/
 		medianMetric = Math.round( median * 100.0 ) / 100.0;
-		System.out.println("Median: " + medianMetric);
-		
 		return medianMetric;
 		
 	}
