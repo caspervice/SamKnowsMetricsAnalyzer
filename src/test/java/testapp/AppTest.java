@@ -1,6 +1,6 @@
 package testapp;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class AppTest {
         
         /** Load json **/
 		Resource inputs1 = new ClassPathResource("inputs/1.json");
-		Resource inputs2 = new ClassPathResource("inputs/2.json");
+//		Resource inputs2 = new ClassPathResource("inputs/2.json");
 		
 		
 		InputStream inputStream = null;
@@ -67,11 +67,6 @@ public class AppTest {
     }
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
 	public void testAverage() {
 		
 		if (this.analyzer == null) {
@@ -84,6 +79,71 @@ public class AppTest {
 		final MetricsResultsModel results = this.analyzer.getMetricsResults();
 		
 		Assert.assertEquals(12.84, results.getAverage());
+		
+	}
+	
+	@Test
+	public void testMin() {
+		
+		if (this.analyzer == null) {
+			
+			this.analyzer = new MetricAnalyzer(metrics1List);
+		}
+		
+		this.analyzer.loadMetrics();
+		
+		final MetricsResultsModel results = this.analyzer.getMetricsResults();
+		
+		Assert.assertEquals(12.66, results.getMin());
+		
+	}
+	
+	@Test
+	public void testMax() {
+		
+		if (this.analyzer == null) {
+			
+			this.analyzer = new MetricAnalyzer(metrics1List);
+		}
+		
+		this.analyzer.loadMetrics();
+		
+		final MetricsResultsModel results = this.analyzer.getMetricsResults();
+		
+		Assert.assertEquals(13.01, results.getMax());
+		
+	}
+	
+	@Test
+	public void testMedian() {
+		
+		if (this.analyzer == null) {
+			
+			this.analyzer = new MetricAnalyzer(metrics1List);
+		}
+		
+		this.analyzer.loadMetrics();
+		
+		final MetricsResultsModel results = this.analyzer.getMetricsResults();
+		
+		Assert.assertEquals(12.86, results.getMedian());
+		
+	}
+	
+	@Test
+	public void testPeriod() {
+		
+		if (this.analyzer == null) {
+			
+			this.analyzer = new MetricAnalyzer(metrics1List);
+		}
+		
+		this.analyzer.loadMetrics();
+		
+		final MetricsResultsModel results = this.analyzer.getMetricsResults();
+		
+		Assert.assertEquals("2018-01-29", results.getFrom());
+		Assert.assertEquals("2018-02-27", results.getTo());
 		
 	}
 
