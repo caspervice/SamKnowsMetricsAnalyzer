@@ -10,3 +10,5 @@ executed by selecting right-click on the project and select 'Run As > JUnit Test
 The 'input' data is loaded before each test automatically
 
 Input data files can be found under src/main/resources
+
+You can find the result / output results under '\logs\outputs.txt' which will contain the metrics analysis results

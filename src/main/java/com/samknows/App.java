@@ -3,6 +3,7 @@
  */
 package com.samknows;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.joda.time.LocalDate;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -38,6 +40,8 @@ public class App {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		loadLogger();
 		
 		/** Load inputs. **/
 		Resource inputs1 = loadDatasetOne();
@@ -73,6 +77,23 @@ public class App {
 		metricAnalyzer.loadMetrics();
 		
 		metricAnalyzer.printResults();
+		
+	}
+
+	private static void loadLogger() {
+		
+		try {
+			
+			String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j.xml";
+			
+			DOMConfigurator.configureAndWatch(log4jConfigFile);
+			System.out.println("log4j loaded");
+			
+		} catch (Exception e) {
+			
+			System.out.println("Error loading log4j...\n\n");
+			
+		}
 		
 	}
 

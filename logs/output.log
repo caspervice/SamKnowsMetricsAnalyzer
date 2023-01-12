@@ -1,0 +1,57 @@
+INFO    2023-01-12 14:41:44,850 [main] com.samknows.MetricAnalyzer  - SamKnows Metric Analyser v1.0.0
+===============================
+
+
+Period Checked: 
+
+From: 2018-01-29
+To: 2018-02-27
+
+Statistics:
+
+    Unit: Megabits per second
+
+	Average: 12.84
+	Min: 12.66
+	Max: 13.01
+	Median: 12.86
+
+Under-performing periods:
+INFO    2023-01-12 14:42:21,402 [main] com.samknows.MetricAnalyzer  - SamKnows Metric Analyser v1.0.0
+===============================
+
+
+Period Checked: 
+
+From: 2018-01-29
+To: 2018-02-27
+
+Statistics:
+
+    Unit: Megabits per second
+
+	Average: 12.84
+	Min: 12.66
+	Max: 13.01
+	Median: 12.86
+
+Under-performing periods:
+INFO    2023-01-12 14:44:07,963 [main] com.samknows.MetricAnalyzer  - SamKnows Metric Analyser v1.0.0
+===============================
+
+
+Period Checked: 
+
+From: 2018-01-29
+To: 2018-02-27
+
+Statistics:
+
+    Unit: Megabits per second
+
+	Average: 12.84
+	Min: 12.66
+	Max: 13.01
+	Median: 12.86
+
+Under-performing periods:

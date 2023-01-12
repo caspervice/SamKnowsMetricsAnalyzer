@@ -5,6 +5,8 @@ package com.samknows;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.samknows.model.DataMetricsModel;
 import com.samknows.model.MetricsResultsModel;
 import com.samknows.utils.MetricMinMaxUtils;
@@ -16,6 +18,8 @@ import com.samknows.utils.PeriodUtils;
  *
  */
 public class MetricAnalyzer {
+	
+	private static Logger logger = Logger.getLogger(MetricAnalyzer.class.getName());
 	
 	private List<DataMetricsModel> metricsList;
 	
@@ -73,24 +77,8 @@ public class MetricAnalyzer {
 				+ "\n\tMax: " + this.max
 				+ "\n\tMedian: " + this.median
 				+ "\n\nUnder-performing periods:";
-		
 		System.out.println(result);
-
-		
-//				+ this.averageResult
-//				+ this.minMaxResult;
-		
-		
-		
-//		final String result = "SamKnows Metric Analyser v1.0.0"
-//				+ "\n==============================="
-//				+ this.periodResult
-//				+ "\nStatistics:\r\n" + 
-//				"\r\n" + 
-//				"    Unit: Megabits per second"
-//				+ this.averageResult
-//				+ this.minMaxResult;
-		
+		logger.info(result);
 		
 	}
 	
